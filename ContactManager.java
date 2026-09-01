@@ -1,16 +1,14 @@
 import java.util.*;
-class Contact{
-    String name;
-    String phoneNumber;
+class ContactManager {
+    
 
   
-    Map<String, String> contacts = new HashMap<>();
+    private Map<String, String> contacts = new HashMap<>();
 
     //Add contact.
-    Map<String, String> addContact(String name, String phoneNumber) {
+    String addContact(String name, String phoneNumber) {
         contacts.put(name, phoneNumber);
-        System.out.println("Contact added: " + name + " - " + phoneNumber);
-        return contacts;
+        return "Contact added: " + name + " - " + phoneNumber;
     }
 
     //Search contact by name.
@@ -36,13 +34,14 @@ class Contact{
         public static void main(String[] args) {
             // Implementation of the contact management system
             
-            Contact cn = new Contact();
-            cn.addContact("John Doe", "123-456-7890");
-            cn.addContact("Jane Smith", "987-654-3210");  
-            cn.addContact("Alice Johnson", "555-123-4567");
+            ContactManager cn = new ContactManager();
+           
+            System.out.println(cn.addContact("John Doe", "123-456-7890"));
+            System.out.println(cn.addContact("Jane Smith", "987-654-3210"));
+            System.out.println(cn.addContact("Alice Johnson", "555-123-4567"));
             System.out.println(cn.searchContact("John Doe"));
             System.out.println(cn.searchContact("Jane Smith"));
             System.out.println(cn.deleteContact("Jane Smith"));
-           
+            System.out.println(cn.searchContact("Jane Smith"));
         }
         }
